@@ -1,5 +1,7 @@
+const API_URL = 'https://biblia-harpa-leitura-e-vida-uyke.vercel.app'
+
 const api = async <T,>(path: string): Promise<T> => {
-  const response = await fetch(path)
+  const response = await fetch(`${API_URL}${path}`)
   if (!response.ok) {
     const data = await response.json().catch(() => ({}))
     throw new Error(data.error || 'Não foi possível carregar os dados.')
